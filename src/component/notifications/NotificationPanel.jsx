@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { Bell, CheckCircle2, Loader2, AlertTriangle, Package } from "lucide-react";
 import api from "../../api/API";
@@ -14,7 +13,7 @@ const NotificationPanel = () => {
   const fetchNotifications = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await api.get("/notifications", {
+      const res = await api.get("/api/notifications", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setNotifications(res.data);
@@ -30,8 +29,8 @@ const NotificationPanel = () => {
   const markAsRead = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put(
-        `http://localhost:5000/api/notifications/${id}`,
+      await api.put(
+        `/api/notifications/${id}`,
         { read: true },
         { headers: { Authorization: `Bearer ${token}` } }
       );

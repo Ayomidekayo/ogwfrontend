@@ -21,7 +21,7 @@ const Profile = () => {
     }
 
     try {
-      const res = await api.get("/user/profile", {
+      const res = await api.get("/api/user/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -57,7 +57,7 @@ const Profile = () => {
 
     try {
       const res = await api.put(
-        "/profile/update",
+        "/api/profile/update",
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

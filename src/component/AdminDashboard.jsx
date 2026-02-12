@@ -74,7 +74,7 @@ export default function AdminDashboard() {
         setUser({ name: "Unknown", role: "user" });
         return;
       }
-      const res = await api.get(`/auth/me`, cfg);
+      const res = await api.get(`/api/auth/me`, cfg);
       const data = res.data?.user ?? res.data;
       setUser({
         name: data?.name ?? data?.firstName ?? "Unknown",
@@ -96,7 +96,7 @@ export default function AdminDashboard() {
       setLoading(true);
       const cfg = authHeader();
       if (!cfg) return;
-      const res = await api.get(`/dashboard/summary`, cfg);
+      const res = await api.get(`/api/dashboard/summary`, cfg);
       const serverSummary = res.data ?? {};
       setSummary((prev) => ({
         ...prev,

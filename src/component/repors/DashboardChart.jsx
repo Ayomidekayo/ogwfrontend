@@ -13,7 +13,7 @@ const DashboardChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await api.get("/report/chart-data"); // ← you need endpoint
+        const res = await api.get("/api/report/chart-data"); // ← you need endpoint
         // Expected: { labels: [...], released: [...], returned: [...], overdue: [...] }
         const { labels, released, returned, overdue } = res.data;
 

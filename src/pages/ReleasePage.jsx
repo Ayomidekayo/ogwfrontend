@@ -42,7 +42,7 @@ export default function ReleasePage() {
         toast.error("Please log in again.");
         return;
       }
-      const res = await api.get("/auth/me", config);
+      const res = await api.get("/api/auth/me", config);
       setUser(res.data.user);
     } catch (err) {
       console.error(err);
@@ -58,7 +58,7 @@ export default function ReleasePage() {
       const config = authHeader();
       if (!config) return;
 
-      const res = await api.get(`/release`, config);
+      const res = await api.get(`/api/release`, config);
       const payload = res.data;
       const list = Array.isArray(payload)
         ? payload

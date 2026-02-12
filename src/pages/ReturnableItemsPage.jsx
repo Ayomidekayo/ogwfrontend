@@ -11,7 +11,7 @@ const ReturnableItemsPage = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const res = await api.get("/items/returnable", {
+        const res = await api.get("/api/items/returnable", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setItems(res.data.items);

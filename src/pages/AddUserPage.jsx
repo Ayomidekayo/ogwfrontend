@@ -51,7 +51,7 @@ const AddUserPage = () => {
     setSubmitting(true);
     try {
       const res = await api.post(
-        "/user",
+        "/api/user",
         {
           name: formData.name,
           email: formData.email,

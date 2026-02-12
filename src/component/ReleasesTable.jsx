@@ -20,7 +20,7 @@ const ReleasesTable = ({ releases, onReturnCompleted }) => {
     // Call your API to submit return details
     try {
       // e.g., axios.post(..., { ...formData })
-      await api.post(`/release/${selectedRelease._id}/return`, {
+      await api.post(`/api/release/${selectedRelease._id}/return`, {
         // Include any required return details in the payload
         returnedQty: selectedRelease.qtyReleased, // Example: assuming full return
       });

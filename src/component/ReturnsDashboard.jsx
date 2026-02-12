@@ -23,7 +23,7 @@ const ReturnsDashboard = () => {
     const fetchReturns = async () => {
       try {
         setLoading(true);
-        const res = await api.get("/returns", {
+        const res = await api.get("/api/returns", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setReturns(res.data);

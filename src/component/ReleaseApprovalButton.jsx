@@ -17,7 +17,7 @@ const ReleaseApprovalButton = ({ releaseId, action, onUpdated }) => {
 
     setLoading(true);
     try {
-      const res = await api.patch(`/release/${releaseId}/status`, {
+      const res = await api.patch(`/api/release/${releaseId}/status`, {
         approvalStatus: action
       });
       toast.success(res.data.message || `Release ${action} successfully!`);

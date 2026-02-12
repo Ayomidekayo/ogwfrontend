@@ -14,7 +14,7 @@ const NotificationPanel = () => {
   const fetchNotifications = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await api.get("/notifications", {
+      const res = await api.get("/api/notifications", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setNotifications(res.data);
@@ -31,7 +31,7 @@ const NotificationPanel = () => {
     try {
       const token = localStorage.getItem("token");
       await api.put(
-        `/notifications/${id}`,
+        `/api/notifications/${id}`,
         { read: true },
         { headers: { Authorization: `Bearer ${token}` } }
       );

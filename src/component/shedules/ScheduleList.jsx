@@ -9,7 +9,7 @@ export default function ScheduleList() {
   const fetchSchedules = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await api.get("/schedules", {
+      const res = await api.get("/api/schedules", {
         headers: { Authorization: `Bearer ${token}` },
       });
 

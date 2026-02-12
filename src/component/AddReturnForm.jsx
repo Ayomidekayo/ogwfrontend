@@ -20,7 +20,7 @@ const AddReturnForm = ({ onClose }) => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const res = await api.get("/item", {
+        const res = await api.get("/api/item", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setItems(res.data);
@@ -46,7 +46,7 @@ const AddReturnForm = ({ onClose }) => {
 
     try {
       await api.post(
-        "/returns/add",
+        "/api/returns/add",
         {
           ...formData,
           quantityReturned: Number(formData.quantityReturned),

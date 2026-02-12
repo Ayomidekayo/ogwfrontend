@@ -12,7 +12,7 @@ const ReleaseApprovalPanel = ({  onUpdate }) => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      const res = await api.get("/release", {
+      const res = await api.get("/api/release", {
         headers: { Authorization: `Bearer ${token?.trim()}` },
       });
       const allReleases = Array.isArray(res.data.data) ? res.data.data : [];

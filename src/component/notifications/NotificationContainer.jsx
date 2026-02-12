@@ -1,5 +1,4 @@
-// src/component/NotificationContainer.jsx
-import React from "react";
+
 
 const NotificationContainer = ({ notifications, removeNotification }) => {
   return (

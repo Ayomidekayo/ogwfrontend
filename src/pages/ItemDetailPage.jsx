@@ -36,7 +36,7 @@ const ItemDetailPage = () => {
     const fetchItem = async () => {
       console.log("📌 Fetching item with ID:", id);
       try {
-        const { data } = await api.get(`/item/${id}`);
+        const { data } = await api.get(`/api/item/${id}`);
         console.log("📌 API response:", data);
 
         setItem(data.item);
@@ -61,7 +61,7 @@ const ItemDetailPage = () => {
     if (!window.confirm("Are you sure you want to delete this item?")) return;
 
     try {
-      await api.delete(`/item/${id}`);
+      await api.delete(`/api/item/${id}`);
       toast.success("Item deleted successfully!");
       navigate("/admin-dashboard/items");
     } catch (error) {

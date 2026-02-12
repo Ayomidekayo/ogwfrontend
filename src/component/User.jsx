@@ -29,7 +29,7 @@ const User = () => {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const res = await api.get("/user", {
+      const res = await api.get("/api/user", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const list = Array.isArray(res.data) ? res.data : res.data.users || [];
@@ -73,7 +73,7 @@ const User = () => {
     e.preventDefault();
     try {
       const res = await api.put(
-        `/user/${editingUserId}`,
+        `/api/user/${editingUserId}`,
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -88,7 +88,7 @@ const User = () => {
   const handleToggleActive = async (userId, newStatus) => {
     try {
       const res = await api.put(
-        `/user/${userId}/active`,
+        `/api/user/${userId}/active`,
         { active: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -103,7 +103,7 @@ const User = () => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
       const res = await api.delete(
-        `/user/${id}`,
+        `/api/user/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       toast.success(res.data.message);

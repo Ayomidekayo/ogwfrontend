@@ -85,7 +85,7 @@ export default function ScheduleForm({ onCreated }) {
       };
 
       const token = localStorage.getItem("token");
-      const res = await api.post("/schedules", body, {
+      const res = await api.post("/api/schedules", body, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

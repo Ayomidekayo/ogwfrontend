@@ -72,7 +72,7 @@ const AddItemPage = () => {
     setIsSubmitting(true);
     try {
       const payload = { ...form, category: "stored" };
-      const res = await api.post("/item/add", payload, {
+      const res = await api.post("/api/item/add", payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success(res.data.message || "Item added successfully!");

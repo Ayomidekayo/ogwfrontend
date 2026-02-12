@@ -51,10 +51,10 @@ const ItemsPage = () => {
 
       try {
         const [profileRes, itemsRes] = await Promise.all([
-          api.get("/user/profile", {
+          api.get("/api/user/profile", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          api.get("/item/get", {
+          api.get("/api/item/get", {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);

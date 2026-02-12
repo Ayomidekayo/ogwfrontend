@@ -34,7 +34,7 @@ const ReturnHistoryPage = () => {
 useEffect(() => {
   const fetchReturnHistory = async () => {
     try {
-      const response = await api.get(`/return/release/${releaseId}`);
+      const response = await api.get(`/api/return/release/${releaseId}`);
       console.log("ReturnHistory API response:", response);
 
       const returnRecords = response.data.data;  // because controller returns { data: [ ... ] }

@@ -78,7 +78,7 @@ const ReleaseForm = ({ onReleaseAdded }) => {
       expectedReturnBy: formData.expectedReturnBy || null,
     };
 
-    await api.post("/release", payload, {
+    await api.post("/api/release", payload, {
       headers: { Authorization: `Bearer ${token}` },
     });
 

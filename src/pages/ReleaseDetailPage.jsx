@@ -38,7 +38,7 @@ const today = new Date().toISOString().split("T")[0];
 
     const fetchItemDetails = async () => {
       try {
-        const res = await api.get(`/item/${id}`, {
+        const res = await api.get(`/api/item/${id}`, {
           headers: { Authorization: `Bearer ${token.trim()}` },
         });
         setItem(res.data.item);
@@ -143,7 +143,7 @@ if (formData.isReturnable && expected) {
       setSubmitting(true);
 
       const resp = await api.post(
-        `/item/release/${item._id}`,
+        `/api/item/release/${item._id}`,
         payload,
         {
           headers: {

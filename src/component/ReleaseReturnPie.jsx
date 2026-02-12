@@ -8,7 +8,7 @@ function ReleaseReturnPie() {
   useEffect(() => {
     async function fetchSummary() {
       try {
-        const res = await api.get('/dashboard/summary', {
+        const res = await api.get('/api/dashboard/summary', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         const chartTotals = res.data.chartTotals;
