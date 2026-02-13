@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { Bell, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -10,21 +9,17 @@ const Notification = () => {
   const [loading, setLoading] = useState(true);
 
   // Fetch notifications
-  const fetchNotifications = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      const res = await api.get("/api/notifications", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setNotifications(res.data);
-    } catch (error) {
-      console.error(error);
-      toast.error("Failed to load notifications");
-    } finally {
-      setLoading(false);
-    }
-  };
-
+const fetchNotifications = async () => {
+  try {
+    const res = await api.get("/api/notifications");
+    setNotifications(res.data);
+  } catch (error) {
+    console.error(error);
+    toast.error("Failed to load notifications");
+  } finally {
+    setLoading(false);
+  }
+};
   // Mark as read
   const markAsRead = async (id) => {
     try {
