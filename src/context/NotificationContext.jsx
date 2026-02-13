@@ -1,8 +1,7 @@
 // src/context/NotificationContext.jsx
 import React, { createContext, useContext, useState, useEffect } from "react";
-import axios from "axios";
 import NotificationPanel from "../component/notifications/NotificationPanel";
-
+import api from "../api/API";
 
 // Create context
 const NotificationContext = createContext(null);
@@ -14,10 +13,7 @@ export const NotificationProvider = ({ children }) => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-          const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/notifications",{
-            headers: { Authorization: `Bearer ${token}` },
-      });
+        const res = await api.get("/api/notifications");
         setNotifications(res.data); // ✅ axios returns data directly
       } catch (err) {
         console.error("Failed to fetch notifications:", err.message);
@@ -44,10 +40,7 @@ export const NotificationProvider = ({ children }) => {
   // Mark notification as read (backend + local state)
   const markAsRead = async (id) => {
     try {
-       const token = localStorage.getItem("token");
-      await axios.patch(`http://localhost:5000/api/notifications/${id}/read`,{
-       headers: { Authorization: `Bearer ${token}` },
-      });
+      await api.patch(`/api/notifications/${id}/read`);
       setNotifications((prev) =>
         prev.map((n) => (n._id === id ? { ...n, read: true } : n))
       );
@@ -61,9 +54,7 @@ export const NotificationProvider = ({ children }) => {
       value={{ notifications, addNotification, removeNotification, markAsRead }}
     >
       {children}
-      <NotificationPanel
-        
-      />
+      <NotificationPanel />
     </NotificationContext.Provider>
   );
 };
