@@ -28,7 +28,6 @@ import AddUserPage from "./pages/AddUserPage";
 import Profile from "./component/Profile";
 import Logout from "./component/Logout";
 import SchedulePage from "./pages/SchedulePage";
-import { NotificationProvider } from "./context/NotificationContext";
 import NotificationPanel from "./component/notifications/NotificationPanel";
 import Report from "./component/Report";
 import ReturnDetailPage from "./pages/ReturnDetailPage ";
@@ -38,7 +37,7 @@ import Notification from "./component/notifications/Notification";
 export default function App() {
   return (
     <>
-      <NotificationProvider>
+  
         <Navbar />
         <ToastContainer position="top-right" autoClose={3000} />
 
@@ -111,7 +110,7 @@ export default function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
-      </NotificationProvider>
+ 
     </>
   );
 }
