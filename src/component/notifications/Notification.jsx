@@ -3,7 +3,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { Bell, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import api from "../../api/API";
-
 const Notification = () => {
   const [notifications, setNotifications] = useState([]);
   const [loading, setLoading] = useState(true);
