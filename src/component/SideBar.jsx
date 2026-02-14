@@ -42,7 +42,6 @@ const SideBar = () => {
     { name: "Items", path: "items", icon: ShoppingCart, matchStartsWith: true },
     { name: "Notifications", path: "notifications", icon: Bell },
     { name: "Users", path: "users", icon: Users },
-    { name: "Schedules", path: "schedules", icon: ShoppingCart },
     { name: "Releases", path: "releases", icon: Truck },
     { name: "Reports", path: "reports", icon: BarChart3 },
     { name: "Returns", path: "returns", icon: BarChart3 },
@@ -53,7 +52,6 @@ const SideBar = () => {
   const userItems = [
     { name: "Dashboard", path: "", icon: Boxes, isIndex: true },
     { name: "Items", path: "items", icon: ShoppingCart, matchStartsWith: true },
-    { name: "Schedules", path: "schedules", icon: ShoppingCart },
     { name: "Releases", path: "releases", icon: Truck },
     { name: "Returns", path: "returns", icon: BarChart3 },
     { name: "Profile", path: "profile", icon: UserCircle },
