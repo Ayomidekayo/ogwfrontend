@@ -12,7 +12,7 @@ const AddUserPage = () => {
   // Only superadmin should be able to access
   if (user?.role !== "superadmin") {
     // Optionally redirect or show "Not authorized"
-    navigate("/");
+    navigate("admin-dashboard/users");
   }
 
   const [formData, setFormData] = useState({
@@ -63,7 +63,7 @@ const AddUserPage = () => {
         }
       );
       toast.success(res.data.message || "User created successfully");
-      navigate("/users"); // go back to user list
+     navigate("/admin-dashboard/users", { replace: true });
     } catch (err) {
       console.error("Add user error:", err.response?.data || err.message);
       toast.error(err.response?.data?.message || "Failed to create user");
