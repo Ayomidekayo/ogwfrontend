@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import { useAuth } from "../context/AuthContext";
@@ -9,7 +8,7 @@ import api from "../api/API";
 const MEASURING_UNITS = [
   "piece", "pack", "bundle", "carton", "crate", "roll", "litre",
   "kilogram", "gram", "meter", "box", "container", "bag", "set",
-  "pair", "sheet", "tube", "unit", "pallet"
+  "pair", "sheet", "tube", "unit", "pallet", "keg"
 ];
 
 const AddItemPage = () => {
